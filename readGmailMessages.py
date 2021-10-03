@@ -10,7 +10,7 @@ def read_email_from_gmail():
         mail.select('inbox')
         type, data = mail.search(None, 'All')
         for num in data[0].split():
-            typ, data = mail.fetch(num, '(RFC822)')
+            type, data = mail.fetch(num, '(RFC822)')
             raw_text = (data[0][1])
             msg = email.message_from_string(raw_text.decode('utf-8'))
             print('From: %s' % msg['from'])
